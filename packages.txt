@@ -5,3 +5,5 @@ soundfile
 matplotlib
 scipy
 imageio-ffmpeg
+ffmpeg
+libsndfile1
