@@ -29,25 +29,13 @@ import streamlit as st
 # =========================================================
 # [1단계] 한글 폰트(맑은 고딕) 자동 등록 (폰트 깨짐 100% 방지)
 # =========================================================
-font_path = "C:/Windows/Fonts/malgun.ttf"
-try:
-    fm.fontManager.addfont(font_path)
-    font_prop = fm.FontProperties(fname=font_path)
-    KOREAN_FONT = font_prop.get_name()
-    plt.rcParams['font.family'] = KOREAN_FONT
-except Exception:
-    KOREAN_FONT = 'Malgun Gothic'
-    plt.rcParams['font.family'] = KOREAN_FONT
-
-plt.rcParams['font.sans-serif'] = [KOREAN_FONT, 'NanumGothic', 'Gulim', 'sans-serif']
+KOREAN_FONT = 'sans-serif'
+plt.rcParams['font.family'] = 'DejaVu Sans'
 plt.rcParams['axes.unicode_minus'] = False
 
 # FFmpeg 경로 시스템 연동
 try:
     _ffmpeg_exe = imageio_ffmpeg.get_ffmpeg_exe()
-    _ffmpeg_dir = os.path.dirname(_ffmpeg_exe)
-    if _ffmpeg_dir not in os.environ.get("PATH", ""):
-        os.environ["PATH"] = _ffmpeg_dir + os.pathsep + os.environ.get("PATH", "")
 except Exception:
     pass
 
